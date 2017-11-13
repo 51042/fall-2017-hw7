@@ -40,6 +40,7 @@ To confirm that your algorithm is working correctly, you can check it against [n
   1. The final estimate of the largest eigenvalue, k.
   2. The final estimate of the corresponding eigenvector, x.
   3. The number of iterations that it took to reach convergence.
+- The function must have a docstring describing its purpose, arguments, and return value.
 
 ### Specifications: `main`
 
@@ -51,7 +52,7 @@ To confirm that your algorithm is working correctly, you can check it against [n
     A = np.random.rand(5, 5)
     ```
 - Vary the tolerance passed to `power_iteration` to see how the number of iterations changes as the tolerance becomes smaller. Use the values 10<sup>-3</sup>, 10<sup>-4</sup>, 10<sup>-5</sup>, 10<sup>-6</sup>, 10<sup>-7</sup>, and 10<sup>-8</sup>.
-- Using matplotlib, make a plot of the number of iterations (y-axis) versus the tolerance used in `power_iteration` (x-axis). Since the tolerance varies over multiple orders of magnitude, use [plt.semilogx](https://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.semilogx) instead of plt.plot. Make sure your axes are labeled and save the plot as a PNG file with the name "iterations.png".
+- Using matplotlib, make a plot of the number of iterations (y-axis) versus the tolerance used in `power_iteration` (x-axis). Since the tolerance varies over multiple orders of magnitude, use [plt.semilogx](https://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.semilogx) (which uses a logarithmic scale on the x-axis) instead of plt.plot. Make sure your axes are labeled and save the plot as a PNG file with the name "iterations.png".
 
 ## Problem 2: Food inspections
 
@@ -61,10 +62,10 @@ Before you begin, run the `download-data.py` script to download the food inspect
 
 ### Searching by ZIP
 
-The first thing Dr. Romano wants to do is to rule out all restaurants that have failed an inspection within the last year within ZIP code 60661, where he lives. Use Pandas to determine all rows corresponding to restaurants (`'Facility Type'` column) in ZIP code 60661 (`'Zip'` column) that failed an inspection (`'Results'` column) since 11/1/2016 (`'Inspection Date'` column) and print a resulting DataFrame with only matching rows.
+The first thing Dr. Romano wants to do is to rule out all restaurants that have failed an inspection within the last year within ZIP code 60661, where he lives. Write a function called `search_by_zip(dataframe)` that uses Pandas to determine all rows corresponding to restaurants (`'Facility Type'` column) in ZIP code 60661 (`'Zip'` column) that failed an inspection (`'Results'` column) since 11/1/2016 (`'Inspection Date'` column) and returns a DataFrame with only matching rows. The function should accept a DataFrame containing the original data as its only argument. It must have a docstring.
 
 ### Searching by location
 
-Remembering that his students have already written a module to find the distance between two latitude/longitude pairs, he realizes it can be used to more accurately find restaurants that are closeby, considering that restaurants in other ZIP codes are also close to his apartment. Use Pandas to determine all rows corresponding to restaurants that failed an inspection since 11/1/2016 and are within 0.5 miles of Dr. Romano's apartment at latitude=41.8873906 and longitude=-87.6459561 (please don't show up at his house, unless you are coming to offer free babysitting in which case you're always welcome!). Print a DataFrame with matching rows sorted by increasing distance from the given latitude/longitude.
+Remembering that his students have already written a module to find the distance between two latitude/longitude pairs, he realizes it can be used to more accurately find restaurants that are nearby, considering that restaurants in other ZIP codes are also close to his apartment. Write a function called `search_by_location(dataframe)` that uses Pandas to determine all rows corresponding to restaurants that failed an inspection since 11/1/2016 and are within 0.5 miles of Dr. Romano's apartment at latitude=41.8873906 and longitude=-87.6459561 (please don't show up at his house, unless you are coming to offer free babysitting in which case you're always welcome!). The function should accept a DataFrame containing the original data as its only argument and return a DataFrame with matching rows sorted by increasing distance from the given latitude/longitude. It also must have a docstring.
 
 **HINT**: To apply a function to each element of a Series/DataFrame, you can use the [Series.map](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.map.html) or [DataFrame.apply](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.apply.html) methods.
