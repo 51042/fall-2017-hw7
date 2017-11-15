@@ -4,6 +4,8 @@
 
 **Due**: November 19 at 11:59pm CT
 
+For each problem, you are to submit a file named `problem<N>.py` where `<N>` is the number of the problem (e.g. `problem1.py`).
+
 ## Problem 1: Power Iteration
 
 [Linear algebra](https://en.wikipedia.org/wiki/Linear_algebra) is central to many disciplines in the sciences, including mathematics, engineering, physics, and computer science. At the heart of linear algebra is the solution of [systems of linear equations](https://en.wikipedia.org/wiki/System_of_linear_equations), such as:
